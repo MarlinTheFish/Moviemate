@@ -11,7 +11,7 @@ class App
         self::$connection = $database->getConnection();
         self::$router = new Router($uri);
 
-        //pre_print(self::$router->getResult(), "Results of routing (App class)");
+        //pre_print(self::$router->getResult(), self::class);
 
         $controller_class = self::$router->getController()."Controller";
         $controller_method = self::$router->getAction();

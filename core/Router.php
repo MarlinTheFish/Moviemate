@@ -6,7 +6,8 @@ class Router
     private $controller;
     private $action;
     private $params;
-    private $directions;
+
+    private $directions; // Available directions (controllers) from config
 
     public function getController()
     {
@@ -25,11 +26,12 @@ class Router
     
     public function __construct($uri)
     {
-        // Get the list of the available controllers from the config
+        // Get the list of the available directions
         $this->directions = Config::get("controllers");
 
         // Make lowercase, decode special symbols and trim forward slashes
         $this->uri = strtolower(urldecode(trim($uri, "/")));
+        
 
         // Record request in the array
         $path_parts = explode("/", $this->uri);
@@ -53,6 +55,11 @@ class Router
     {
         $result = ["controller" => $this->controller, "action" => $this->action, "params" => $this->params];
         return $result;
+    }
+    
+    public static function redirect($location)
+    {
+        header("Location: {$location}");
     }
 
     private function setController($uri_parts)

@@ -24,12 +24,20 @@ function __autoload ($class)
     }
 }
 
-function pre_print($input, $info = null)
+/*function pre_print($input, $info = null)
 {
     echo "<pre>";
     if ($info) {
         echo "<b style='background-color:greenyellow'>[".$info."]</b> ";
     }
+    print_r($input);
+    echo "</pre>";
+}*/
+
+function pre_print($input, $class = null)
+{
+    echo "<pre>";
+    echo "<b style='background-color:greenyellow'>[Called in {$class}]</b><br>";
     print_r($input);
     echo "</pre>";
 }

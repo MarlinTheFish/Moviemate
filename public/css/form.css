@@ -12,6 +12,10 @@
 
 }
 
+i {
+    color: red;
+}
+
 .button {
     margin: 10px auto;
     display: inline-block;

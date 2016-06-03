@@ -17,12 +17,15 @@
 <div class="content">
     <div class="form">
         <form action="" method="post">
+            <i><?php echo isset(self::$reports["username"]) ? self::$reports["username"] : null; ?></i>
             <label for="username">Username</label> <br>
             <input class="textinput" type="text" name="username" id="username" placeholder="Your Name"> <br>
 
+            <i><?php echo isset(self::$reports["email"]) ? self::$reports["email"] : null; ?></i>
             <label for="email">E-mail</label> <br>
             <input class="textinput" type="text" name="email" id="email" placeholder="youremail@example.com"> <br>
 
+            <i><?php echo isset(self::$reports["password"]) ? self::$reports["password"] : null; ?></i>
             <label for="password">Password</label> <br>
             <input class="textinput" type="password" name="password" id="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;"> <br>
 

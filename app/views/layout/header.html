@@ -1,14 +1,15 @@
+<?php pre_print($_GET) ?>
 <header>
     <div class="logo">
-        <img src="http://placehold.it/60x60">
+        <a href="http://localhost"><img src="http://placehold.it/60x60"></a>
     </div>
     <div class="search">
-        <input type="text" name="search" id="search-space" placeholder="Name of the movie, actor etc.">
-        <button type="submit" id="send-button">
-            <i class="fa fa-search"></i>
-        </button>
+        <form method="GET">
+            <input type="text" name="search" id="search-space" placeholder="Name of the movie, actor etc.">
+            <button type="submit" id="send-button"><i class="fa fa-search"></i></button>
+        </form>
     </div>
-    <div class="log-in"><a href="login">Log In</a></div>
+    <div class="log-in"><a href="http://localhost/users/login">Log In</a></div>
 </header>
 <div class="wrapper">
     <nav>

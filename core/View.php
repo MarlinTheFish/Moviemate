@@ -6,6 +6,8 @@ class View
     const HEADER_PATH = VIEWS.DS."layout".DS."header.html";
     const FOOTER_PATH = VIEWS.DS."layout".DS."footer.html";
 
+    private static $reports = [];
+    
     private $render;
 
     public static function render($template)
@@ -14,6 +16,11 @@ class View
         self::getPath($template);
         $result = ob_get_clean();
         return $result;
+    }
+    
+    public static function addReport($key, $value)
+    {
+        self::$reports[$key] = $value;
     }
 
     // Gets the HTML template corresponding to the controller and method
