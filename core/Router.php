@@ -27,9 +27,11 @@ class Router
     
     public function __construct($uri)
     {
-        $omdb = new Omdb();
-        pre_print($omdb->serach(urlencode("Spy Kids")));
-        die();
+
+        /*for ($i = 1; $i <= 10; $i++): ?>
+            <b><?= $i ?></b>
+        <?php endfor;*/
+
 
         // Get the list of the available directions
         $this->directions = Config::get("directions");
@@ -37,11 +39,9 @@ class Router
 
         // Make lowercase, decode special symbols, strip HTML tags and trim forward slashes
         $this->uri = strip_tags(strtolower(urldecode(trim($uri, "/"))));
-        pre_print($this->uri, "Formatted URI", self::class);
         
         // Record request in the array
         $uri_parts = explode("/", $this->uri);
-        pre_print($uri_parts, "Exploded URI", self::class);
 
         // Extracting the controller from exploded URI
         if ($this->setController($uri_parts)) {

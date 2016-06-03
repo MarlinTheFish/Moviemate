@@ -2,9 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" href="/font-awesome-4.6.3/css/font-awesome.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
     <title>Search - <?= Config::get("title") ?></title>
 </head>
 <body>
+
+<!---- CALL HEADER ---->
+<?= View::getHeader() ?>
+<!---- CALL HEADER ---->
+
+<!----------- PRIMARY CONTENT ----------->
+
+
+
+
+
+<div class="content">
+    <?php for ($i = 1; $i <= count(self::$data)-1; $i++): ?>
+    <div class="left-group">
+        <div class="pic">
+            <img class="poster" src="<?= self::$data[$i]["Poster"] ?>">
+        </div>
+    </div>
+    <?php endfor; ?>
+    <div class="right-group">
+        <h2>News</h2>
+        <div class="text">Something interesting here</div>
+        <div class="text">Something interesting here</div>
+        <div class="text">Something interesting here</div>
+        <div class="text">Something interesting here</div>
+        <div class="text">Something interesting here</div>
+        <div class="text">Something interesting here</div>
+        <div class="text">Something interesting here</div>
+    </div>
+</div>
+</div>
+<!----------- PRIMARY CONTENT ----------->
+
+<!---- CALL FOOTER ---->
+<?= View::getFooter() ?>
+<!---- CALL FOOTER ---->
 
 </body>
 </html>

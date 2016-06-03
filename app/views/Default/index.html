@@ -8,8 +8,12 @@
     <title><?= Config::get("title") ?></title>
 </head>
 <body>
+
+<!---- CALL HEADER ---->
 <?= View::getHeader() ?>
-<!--- CONTENT HERE --->
+<!---- CALL HEADER ---->
+
+<!----------- PRIMARY CONTENT ----------->
 <div class="content">
     <div class="left-group">
         <div class="pic">
@@ -28,7 +32,11 @@
         </div>
     </div>
 </div>
-<!--- CONTENT HERE --->
+<!----------- PRIMARY CONTENT ----------->
+
+<!---- CALL FOOTER ---->
 <?= View::getFooter() ?>
+<!---- CALL FOOTER ---->
+
 </body>
 </html>

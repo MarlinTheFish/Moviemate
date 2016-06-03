@@ -11,12 +11,9 @@ class App
         self::$connection = $database->getConnection();
         self::$router = new Router($uri);
 
-        pre_print(self::$router->getResult(), "Results from Router", self::class);
-
         $controller_class = self::$router->getController()."Controller";
         $controller_method = self::$router->getAction();
         $params = !empty(self::$router->getParams()) ? self::$router->getParams() : null;
-        //pre_print($params);
         
         $htmlTemplate = str_replace("Controller", "", $controller_class).DS.$controller_method;
 

@@ -31,7 +31,8 @@ class Omdb
         $result = json_decode(file_get_contents($this->request."s=".urlencode($search)), true);
 
         if (array_key_exists("Error", $result)) {
-            return "Error: ".$result["Error"];
+            $error["Error"] = "Movie not found.";
+            return $error;
         }
 
         return $result;

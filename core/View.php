@@ -8,7 +8,7 @@ class View
 
     private static $reports = [];
     
-    private $render;
+    private static $data;
 
     public static function render($template)
     {
@@ -16,6 +16,11 @@ class View
         self::getPath($template);
         $result = ob_get_clean();
         return $result;
+    }
+    
+    public static function setData(array $input)
+    {
+        self::$data = $input;
     }
     
     public static function addReport($key, $value)
