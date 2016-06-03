@@ -7,10 +7,13 @@ require_once ROOT.DS."app".DS."config.php";
 
 function __autoload ($class)
 {
-    // Paths
+    // Core path
     $core = ROOT.DS."core".DS.$class.".php";
+    
+    // Application paths
     $controller = ROOT.DS."app".DS."controllers".DS.$class.".php";
     $model = ROOT.DS."app".DS."models".DS.$class.".php";
+    $app_core = ROOT.DS."app".DS."core".DS.$class.".php";
 
     // Autoload
     if (file_exists($core)) {
@@ -19,6 +22,8 @@ function __autoload ($class)
         require_once $controller;
     } elseif (file_exists($model)) {
         require_once $model;
+    } elseif (file_exists($app_core)) {
+        require_once $app_core;
     } else {
         throw new Exception("Class {$class} doesn't exist.");
     }
