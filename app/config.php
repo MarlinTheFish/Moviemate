@@ -4,8 +4,8 @@
 Config::set("title", "Moviemate");
 
 // Available directions
-Config::set("controllers", ["movies", "users", "search"]);
-Config::set("default_page", "index");
+Config::set("directions", ["movies", "users", "search"]);
+Config::set("special_directions", "search");
 
 // Database credentials
 Config::set("db_host", "localhost");

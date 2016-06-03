@@ -8,6 +8,7 @@ class Router
     private $params;
 
     private $directions; // Available directions (controllers) from config
+    private $special_directions; // Special directions that DON'T have any actions
 
     public function getController()
     {
@@ -27,27 +28,28 @@ class Router
     public function __construct($uri)
     {
         // Get the list of the available directions
-        $this->directions = Config::get("controllers");
+        $this->directions = Config::get("directions");
+        $this->special_directions = Config::get("special_directions");
 
         // Make lowercase, decode special symbols and trim forward slashes
         $this->uri = strtolower(urldecode(trim($uri, "/")));
+        pre_print($this->uri, "Formatted URI", self::class);
         
-
         // Record request in the array
-        $path_parts = explode("/", $this->uri);
-        //pre_print($path_parts, "Exploded URI (Router class)");
+        $uri_parts = explode("/", $this->uri);
+        pre_print($uri_parts, "Exploded URI", self::class);
 
         // Extracting the controller from exploded URI
-        if ($this->setController($path_parts)) {
+        if ($this->setController($uri_parts)) {
             // Stop the constructor if controller was empty or unexisting
-            return true;
+            return false;
         }
 
         // Extract action
-        $this->setAction($path_parts);
+        $this->setAction($uri_parts);
 
-        // Set all that left in $path_parts as parametres
-        $this->setParams($path_parts);
+        // Set all that left in $uri_parts as parametres
+        $this->setParams($uri_parts);
     }
 
     // Returns the associative array of routing result
@@ -62,19 +64,23 @@ class Router
         header("Location: {$location}");
     }
 
+    /*
+     * Checks the $directions property to get the available controllers
+     * and sets the $uri_parts first element to one of these controllers.
+     * If
+     */
     private function setController($uri_parts)
     {
         // If the first element of the URI is in directions list, set it to it
         if (in_array($uri_parts[0], $this->directions)) {
             $this->controller = ucfirst($uri_parts[0]);
             return false;
-
-        // If the first element is empty or is not set in directions, set it to "Pages" and action to "index"
-        } elseif ((empty($uri_parts[0]) || !in_array($uri_parts[0], $this->directions))) {
-            $this->controller = "Default";
-            $this->action = "index";
-            return true;
         }
+
+        // Set the controller and action to default ones
+        $this->controller = "Default";
+        $this->action = "index";
+        return true;
     }
 
     private function setAction($uri_parts)
@@ -97,5 +103,10 @@ class Router
                 $this->params[$i-2] = $uri_parts[$i];
             }
         }
+    }
+
+    private function checkIfSpecial($uri_parts)
+    {
+
     }
 }

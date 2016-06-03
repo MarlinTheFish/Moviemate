@@ -34,10 +34,10 @@ function __autoload ($class)
     echo "</pre>";
 }*/
 
-function pre_print($input, $class = null)
+function pre_print($input, $comment = null, $class = null)
 {
     echo "<pre>";
-    echo "<b style='background-color:greenyellow'>[Called in {$class}]</b><br>";
+    echo "<b style='background-color:greenyellow'>[[{$comment}] Called in {$class}]</b><br>";
     print_r($input);
     echo "</pre>";
 }
