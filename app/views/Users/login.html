@@ -2,10 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <link rel="stylesheet" type="text/css" href="/css/form.css">
-    <link rel="stylesheet" href="/font-awesome-4.6.3/css/font-awesome.css">
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
     <title>Log In - <?= Config::get("title") ?></title>
 </head>
 <body>
@@ -14,32 +10,18 @@
 <!---- CALL HEADER ---->
 
 <!----------- PRIMARY CONTENT ----------->
-<div class="content">
-    <div class="form">
-        <form action="" method="post">
-            <i><?php echo isset(self::$reports["username"]) ? self::$reports["username"] : null; ?></i>
-            <label for="username">Username</label> <br>
-            <input class="textinput" type="text" name="username" id="username" placeholder="Your Name"> <br>
+    <form action="" method="post">
+        <i><?php echo isset(self::$reports["username"]) ? self::$reports["username"] : null; ?></i>
+        <label for="username">Username</label> <br>
+        <input class="textinput" type="text" name="username" id="username" placeholder="Your Name"> <br>
 
-            <i><?php echo isset(self::$reports["password"]) ? self::$reports["password"] : null; ?></i>
-            <label for="password">Password</label> <br>
-            <input class="textinput" type="password" name="password" id="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;"> <br>
+        <i><?php echo isset(self::$reports["password"]) ? self::$reports["password"] : null; ?></i>
+        <label for="password">Password</label> <br>
+        <input class="textinput" type="password" name="password" id="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;"> <br>
 
-            <input type="submit" value="Sign In" class="button"><br>
-            <a href="signup">Sign Up</a>
-        </form>
-    </div>
-    <div class="right-group">
-        <h2>News</h2>
-        <div class="text">Pitt and Jolie are getting divorced</div>
-        <div class="text">Nolan's new movie</div>
-        <div class="text">Warcraft grossed 150m</div>
-        <div class="text">IMDb and Rotten Tomatoes</div>
-        <div class="text">Former Glee Star Mark Salling Indicted on Child Pornography Charges</div>
-        <div class="text">Johnny Depp’s Wife Amber Heard Claims Domestic Violence</div>
-    </div>
-</div>
-</div>
+        <input type="submit" value="Sign In" class="button"><br>
+        <a href="signup">Sign Up</a>
+    </form>
 <!----------- PRIMARY CONTENT ----------->
 
 <!---- CALL FOOTER ---->

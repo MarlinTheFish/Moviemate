@@ -1,37 +1,25 @@
-<//?php die(); ?>
 <header>
     <div class="logo">
         <a href="http://localhost"><img src="http://placehold.it/60x60"></a>
     </div>
     <div class="search">
         <form action="http://localhost/search/index" method="POST">
-            <input type="text" name="search" id="search-space" placeholder="Name of the movie, actor etc.">
-            <button type="submit" id="send-button"><i class="fa fa-search"></i></button>
+            <input type="text" name="search" id="search-space" placeholder="Name of the movie or series">
+            <button type="submit" id="send-button">Search</button>
         </form>
     </div>
     <div class="log-in"><a href="http://localhost/users/login">Log In</a></div>
+    <div class="wrapper">
+        <nav>
+            <ul>
+                <li><a href="#">Movies</a>
+                </li>
+                <li><a href="#">Top 250</a>
+                </li>
+                <li><a href="#">My profile</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </header>
-<div class="wrapper">
-    <nav>
-        <ul>
-            <li><a href="#">Movies</a>
-                <ul>
-                    <li><a href="#">Popular</a></li>
-                    <li><a href="#">Top 250</a></li>
-                    <li><a href="#">In theaters</a></li>
-                </ul>
-            </li>
-            <li><a href="#">TV</a>
-            </li>
-            <li><a href="#">Games</a>
-                <ul>
-                    <li><a href="#">Xbox One</a></li>
-                    <li><a href="#">PlayStation 4</a></li>
-                    <li><a href="#">PC</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Books</a>
-            </li>
-        </ul>
-    </nav>
-</div>
+<br> <!--- For testing --->

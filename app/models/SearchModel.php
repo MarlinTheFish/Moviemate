@@ -11,7 +11,8 @@ class SearchModel
 
     /**
      * Uses OMDb object to perform a search
-     * @return array with results or errors
+     * @param string: search query
+     * @return array: search results or errors
      */
     public function search($search)
     {
@@ -22,7 +23,7 @@ class SearchModel
             return $return;
         }
         
-        $return = $this->omdb->serach($search);
+        $return = $this->omdb->search($search);
 
         return $return;
     }
